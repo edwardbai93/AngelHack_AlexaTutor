@@ -1,0 +1,78 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700);
+.pricing-table {
+  position: relative;
+  display: block;
+  margin: 0 5px;
+  float: left;
+  width: 300px;
+  background: #f7f7f7;
+  font-family: Roboto, Helvetica, sans-serif;
+  text-align: center;
+}
+
+#container {
+padding-top:5px;
+}
+ 
+.basic {
+  border-top: 3px solid #56ca7c;
+  border-bottom: 3px solid #56ca7c;
+}
+.standard {
+  border-top: 3px solid #5f5fa7;
+  border-bottom: 3px solid #5f5fa7;
+}
+.premium {
+  border-top: 3px solid #0e83cd;
+  border-bottom: 3px solid #0e83cd;
+}
+.pricing-table span {
+  display: block;
+}
+.table-head {
+  padding: 25px 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+.basic .table-head {
+  color: #56ca7c;
+}
+.standard .table-head {
+  color: #5f5fa7;
+}
+.premium .table-head {
+  color: #0e83cd;
+}
+.price {
+  padding: 8px 0;
+  font-size: 32px;
+  font-weight: bold;
+  color: #ffffff;
+}
+.basic .price {
+  background: #56ca7c;
+}
+.standard .price {
+  background: #5f5fa7;
+}
+.premium .price {
+  background: #0e83cd;
+}
+.table-row {
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #888;
+  background: #f7f7f7;
+}
+.table-row:hover {
+  background: #ffffff;
+}
+
+.popover {
+  width: 200px;
+}
+
+.popover-title {
+  text-align: center;
+}

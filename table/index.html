@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+						var json1 = {"words": [{"definitions": [{"word_type": "noun", "def": "a large, heavy, mammal, with thick fur and a very short tail.", "sentence": "Aiden is fighting against a bear"}, {"word_type": "verb", "def": "The action to carry or to support.", "sentence": "I cannot bear any more bugs."}], "last_visited": 1493958083, "rank": 0.2, "text": "bear"}, {"definitions": [{"word_type": "noun", "def": "a feeling of expectation and desire for a certain thing to happen", "sentence": "You are my only hope."}, {"word_type": "verb", "def": "want something to happen or be the case.", "sentence": "I hope my code does not break."}], "last_visited": 1493706251, "rank": 0.38, "text": "hope"}, {"definitions": [{"word_type": "noun", "def": "a cold dish of various mixtures of raw or cooked vegetables.", "sentence": "David had salad for breakfast."}], "last_visited": 1493978110, "rank": 0.67, "text": "salad"}]}
+						var json2 = {"words": [{"definitions": [{"word_type": "noun", "def": "a large, heavy, mammal, with thick fur and a very short tail.", "sentence": "Aiden is fighting against a bear"}, {"word_type": "verb", "def": "The action to carry or to support.", "sentence": "I cannot bear any more bugs."}], "last_visited": 1493958083, "rank": 0.2, "text": "bear"}, {"definitions": [{"word_type": "noun", "def": "a vehicle composed of two wheels held in a frame one behind the other.", "sentence": "I ride my bicycle to the city."}], "last_visited": 1493843602, "rank": 0.55, "text": "bicycle"}, {"definitions": [{"word_type": "noun", "def": "a domesticated hoofed mammal of the horse family with long ears.", "sentence": "The donkey is braying."}], "last_visited": 1494055551, "rank": 0.01, "text": "donkey"}, {"definitions": [{"word_type": "noun", "def": "a solitary burrowing rodent with a short tail and large cheek pouches for carrying food, native to Europe and northern Asia.", "sentence": "Aiden is feeding a hamster"}], "last_visited": 1494079087, "rank": 0.6, "text": "hamster"}, {"definitions": [{"word_type": "noun", "def": "a feeling of expectation and desire for a certain thing to happen", "sentence": "You are my only hope."}, {"word_type": "verb", "def": "want something to happen or be the case.", "sentence": "I hope my code does not break."}], "last_visited": 1493706251, "rank": 0.38, "text": "hope"}, {"definitions": [{"word_type": "noun", "def": "facts, information, and skills acquired by a person through experience or education.", "sentence": "Knowledge is power."}], "last_visited": 1493887725, "rank": 0.3, "text": "knowledge"}, {"text": "machine", "definitions": [{"word_type": "noun", "def": "an apparatus using or applying mechanical power and having several parts.", "sentence": "David operates a vending machine."}, {"word_type": "verb", "def": "make or operate on with a machine", "sentence": "A special nickelchrome steel was manufactured and machined"}]}, {"definitions": [{"word_type": "noun", "def": "a cylindrical projectile that can be propelled to a great height or distance by the combustion of its contents.", "sentence": "Eddie rode a rocket to space"}, {"word_type": "verb", "def": "increase very rapidly and suddenly", "sentence": "Price of coffee is rocketing"}], "last_visited": 1493700544, "rank": 0.99, "text": "rocket"}, {"definitions": [{"word_type": "noun", "def": "a cold dish of various mixtures of raw or cooked vegetables.", "sentence": "David had salad for breakfast."}], "last_visited": 1493978110, "rank": 0.67, "text": "salad"}, {"definitions": [{"word_type": "noun", "def": "a semisolid sourish food prepared from milk fermented by added bacteria.", "sentence": "Yogurt is good for your health."}], "last_visited": 1493956092, "rank": 0.64, "text": "yogurt"}]}
+
+
+	            var listSome = function(x){
+              for(var i=0; i<x.length; i++) {
+           		document.write('<span title="Word Class: ' + x[i][2] + '"' + ' data-toggle="popover" data-trigger="hover" data-content=' + '"' + x[i][1] + '"' + ' class="table-row">' + x[i][0] + '</span>');
+            }}
+          
+	          $(document).ready(function(){
+	    				$('[data-toggle="popover"]').popover();   
+						});
+	          
+	          var parseJsonData = function(arr) {
+	            for(var index in arr) {
+	              var obj = [];
+	              for(var x in arr[index]) {
+	              obj.push(arr[index][x]['text'])
+	              obj.push(arr[index][x]['definitions'][0]['def'])
+	              obj.push(arr[index][x]['definitions'][0]['word_type'])
+	              }
+	              return obj
+	            }
+	          }
+
+	          var createGroupedArray = function(arr, chunkSize) {
+	             var groups = [], i;
+	              for (i = 0; i < arr.length; i += chunkSize) {
+	                  groups.push(arr.slice(i, i + chunkSize));
+	             }
+	             return groups;
+	          }
+	          var createTable = function(jsonObj){
+	          	var parseJson = parseJsonData(jsonObj)
+	          	var parseArr = createGroupedArray(parseJson, 3)
+	          	var finishArr = listSome(parseArr)
+	          }
+	</script>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<style>
+		body {
+			background: #ddd;
+		}
+
+		#container {
+			width: 80%;
+			margin: auto;
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+    </div>
+	<div id="container">
+		<div class="pricing-table basic">
+			<span class="table-head">
+				Past Week
+			</span>
+			<span class="price">
+				Words you learned this past week
+			</span>
+        <script>
+	          var table1 = createTable(json2)
+				</script>
+			</div>
+		</div>
+
+		<div class="pricing-table standard">
+			<span class="table-head">
+				Yesterday
+			</span>
+			<span class="price">
+				Words you learned yesterday
+      </span>
+        <script>
+            var myArr2 = [
+              ["apple", "the usually round, red or yellow, edible fruit of a small tree, Malus sylvestris, of the rose family.", "noun"],
+              ["orange", "a globose, reddish-yellow, bitter or sweet, edible citrus fruit.", "noun"],
+              ["watermelon", "the large, roundish or elongated fruit of a trailing vine, Citrullus lanata, of the gourd family, having a hard, green rind and a sweet, juicy, usually pink or red pulp.", "noun"],
+              ["fruit", "any product of plant growth useful to humans or animals.", "noun"],
+              ["robot", "a machine that resembles a human and does mechanical, routine tasks on command.", "noun"],
+              ["jockey", "a person who rides horses professionally in races.", "noun"],
+              ["temple", "an edifice or place dedicated to the service or worship of a deity or deities.", "noun"]
+            ]
+         var arr2 = listSome(myArr2)
+				</script>
+			</div>
+		</div>
+
+		<div class="pricing-table premium">
+			<span class="table-head">
+				Today
+			</span>
+			<span class="price">
+				Words you learned today
+			</span>
+        <script>
+	          var table1 = createTable(json1)
+				</script>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>
